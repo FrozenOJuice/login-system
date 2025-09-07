@@ -6,6 +6,8 @@ const prisma = require('./src/config/db')
 const app = express();
 app.use(express.json());
 
+const userRoutes = require('./src/routes/userRoute');
+
 // Test Route
 app.get('/ping', (req, res) => {
     res.json({ message: 'pong' });
@@ -21,6 +23,9 @@ app.get('/users', async (req, res) => {
         res.status(500).json({ error: 'Database error' });
     };
 });
+
+// Routes
+app.use('/users', userRoutes);
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {

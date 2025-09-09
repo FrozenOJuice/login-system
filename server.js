@@ -11,9 +11,6 @@ app.use(express.urlencoded({ extended: true }));
 const userRoute = require('./src/routes/userRoute');
 app.use('/api/users', userRoute);
 
-const testRoute = require('./src/routes/testRoute');
-app.use('/api', testRoute);
-
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);

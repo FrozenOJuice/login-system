@@ -7,6 +7,7 @@ const app = express();
 app.use(express.json());
 
 const userRoutes = require('./src/routes/userRoute');
+const authRoutes = require('./src/routes/authRoutes');
 
 // Test Route
 app.get('/ping', (req, res) => {
@@ -26,6 +27,7 @@ app.get('/users', async (req, res) => {
 
 // Routes
 app.use('/users', userRoutes);
+app.use('/auth', authRoutes);
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
